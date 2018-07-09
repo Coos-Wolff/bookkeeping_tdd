@@ -11,7 +11,11 @@ pipeline {
         }
 		
 		stage('SonarQube analysis') {
-            sh 'mvn sonar:sonar'
+			steps {
+				sh '''#!/bin/bash -l
+				mvn sonar:sonar
+				'''
+			}
         }
     }
 }
