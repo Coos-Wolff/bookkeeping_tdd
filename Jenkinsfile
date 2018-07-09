@@ -11,9 +11,7 @@ pipeline {
         }
 		
 		stage('Test') {
-            withMaven(
-				maven: 'Ubuntu'
-				) {
+            steps {
 				sh 'mvn clean verify'
 			}   
         }
