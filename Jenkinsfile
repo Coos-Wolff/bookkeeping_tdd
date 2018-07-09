@@ -1,9 +1,18 @@
 pipeline {
-    agent { docker { image 'maven:3.3.3' } }
+	agent any
+	
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'mvn --version'
+                sh '''#!/bin/bash -l
+				mvn clean javadoc:jar source:jar deploy -DskipITs=false -U
+                '''
+            }
+        }
+		
+		stage('SonarQube analysis') {
+            withSonarQubeEnv('SonarQube') {
+              sh 'mvn sonar:sonar'
             }
         }
     }
