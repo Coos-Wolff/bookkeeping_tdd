@@ -15,7 +15,7 @@ pipeline {
                 * using `true` to allow the Pipeline to continue nonetheless
                 */
                 sh 'make check || true' 
-                junit '**/target/*.xml' 
+                mvn clean:verify 
             }
         }
 		
