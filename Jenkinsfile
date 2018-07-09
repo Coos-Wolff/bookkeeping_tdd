@@ -4,9 +4,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh '''#!/bin/bash -l
-				mvn clean javadoc:jar source:jar deploy -DskipITs=false -U
-                '''
+                sh 'make' 
+                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
             }
         }
 		
