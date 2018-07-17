@@ -1,10 +1,12 @@
-pipeline { 
-    agent any checkout scm  
-    stages { 
-        stage('Build') { 
-            steps { 
-                sh 'mvn clean verify' 
-                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
+pipeline {
+    agent any
+    tools {
+        maven 'Maven_3.5.4'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn clean verify'
             }
         }
     }
