@@ -9,6 +9,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
@@ -48,9 +49,9 @@ public class UserServiceTest {
 
     @Test
     public void testGetUserById() {
-        when(userRepository.getById(1)).thenReturn(user);
+        when(userRepository.getById(1)).thenReturn(Optional.of(user));
 
-        User returnedUser = userService.getById(1);
+        Optional<User> returnedUser = userService.getById(1);
 
        assertThat(returnedUser).isEqualTo(user);
     }
