@@ -4,10 +4,16 @@ pipeline {
         maven 'Maven_3.5.4'
     }
     stages {
-        stage('Build') {
+        stage('Clean') {
             steps {
-                sh 'mvn clean verify'
+                sh 'mvn clean'
             }
-        }
-    }
+		}
+		
+		stage('Verify') {
+			steps {
+				sh 'mvn verify'
+			}
+		}
+	}
 }

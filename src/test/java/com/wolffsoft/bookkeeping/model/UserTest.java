@@ -13,6 +13,7 @@ public class UserTest {
     private static final String FIRST_NAME = "Coos";
     private static final String LAST_NAME = "Wolff";
     private static final String NICKNAME = "AussieBuddy";
+    private static final String EMAIL = "test@email.com";
     private static final String USERNAME = "username";
     private static final String PASSWORD = "password";
     private static final LocalDate DATE_OF_BIRTH = LocalDate.of(1983, 2, 11);
@@ -26,6 +27,7 @@ public class UserTest {
                 .lastName(LAST_NAME)
                 .dateOfBirth(DATE_OF_BIRTH)
                 .nickname(NICKNAME)
+                .email(EMAIL)
                 .username(USERNAME)
                 .password(PASSWORD)
                 .build();
@@ -40,7 +42,7 @@ public class UserTest {
 
     @Test
     public void testPreconditionsNoExceptionsThrownCreate() {
-        User user = User.create(ID, FIRST_NAME, LAST_NAME, DATE_OF_BIRTH, NICKNAME, USERNAME, PASSWORD);
+        User user = User.create(ID, FIRST_NAME, LAST_NAME, DATE_OF_BIRTH, NICKNAME, EMAIL, USERNAME, PASSWORD);
 
         assertThat(user.getId()).isEqualTo(ID);
         assertThat(user.getFirstName()).isEqualTo(FIRST_NAME);
@@ -53,25 +55,25 @@ public class UserTest {
 
     @Test
     public void testPreconditionUsernameThrowsException() {
-        assertThatThrownBy(() -> User.create(ID, FIRST_NAME, LAST_NAME, DATE_OF_BIRTH, NICKNAME, "",
+        assertThatThrownBy(() -> User.create(ID, FIRST_NAME, LAST_NAME, DATE_OF_BIRTH, NICKNAME,  EMAIL, "",
                 PASSWORD)).hasMessage("Username cannot be empty").isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     public void testPreconditionPasswordThrowsException() {
-        assertThatThrownBy(() -> User.create(ID, FIRST_NAME, LAST_NAME, DATE_OF_BIRTH, NICKNAME, USERNAME,
+        assertThatThrownBy(() -> User.create(ID, FIRST_NAME, LAST_NAME, DATE_OF_BIRTH, NICKNAME, USERNAME, EMAIL,
                 "")).hasMessage("Password cannot be empty").isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     public void testPreconditionIdThrowsException() {
-        assertThatThrownBy(() -> User.create(0, FIRST_NAME, LAST_NAME, DATE_OF_BIRTH, NICKNAME, USERNAME,
+        assertThatThrownBy(() -> User.create(0, FIRST_NAME, LAST_NAME, DATE_OF_BIRTH, NICKNAME, USERNAME, EMAIL,
                 PASSWORD)).hasMessage("Id cannot be smaller than 1 or be null").isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     public void testPreconditionIdWithNullValueThrowsException() {
-        assertThatThrownBy(() -> User.create(null, FIRST_NAME, LAST_NAME, DATE_OF_BIRTH, NICKNAME, USERNAME,
+        assertThatThrownBy(() -> User.create(null, FIRST_NAME, LAST_NAME, DATE_OF_BIRTH, NICKNAME, USERNAME, EMAIL,
                 PASSWORD)).isInstanceOf(NullPointerException.class);
     }
 }
