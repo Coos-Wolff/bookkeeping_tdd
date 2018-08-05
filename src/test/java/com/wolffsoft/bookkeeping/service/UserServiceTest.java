@@ -53,7 +53,7 @@ public class UserServiceTest {
 
         Optional<User> returnedUser = userService.getById(1);
 
-       assertThat(returnedUser).isEqualTo(user);
+       assertThat(returnedUser.get()).isEqualTo(user);
     }
 
     @Test
@@ -62,6 +62,6 @@ public class UserServiceTest {
 
         Optional<User> returnedUser = userService.getByEmail(EMAIL);
 
-        assertThat(returnedUser).isEqualTo(user);
+        assertThat(returnedUser.get()).isEqualTo(user);
     }
 }

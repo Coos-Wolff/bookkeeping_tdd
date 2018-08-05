@@ -27,6 +27,7 @@ public class UserTest {
                 .lastName(LAST_NAME)
                 .dateOfBirth(DATE_OF_BIRTH)
                 .nickname(NICKNAME)
+                .email(EMAIL)
                 .username(USERNAME)
                 .password(PASSWORD)
                 .build();
