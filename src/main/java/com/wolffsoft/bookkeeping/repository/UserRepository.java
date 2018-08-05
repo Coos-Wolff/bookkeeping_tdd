@@ -26,6 +26,13 @@ public class UserRepository {
                         .findFirst()
         );
     }
+
+    public Optional<User> getByEmail(String email) {
+        return jdbi.withHandle(handle ->
+                handle.createQuery("SELECT * FROM user where email = :email")
+                        .bind("email", email)
+                        .map(userMapper)
+                        .findFirst()
         );
     }
 }
