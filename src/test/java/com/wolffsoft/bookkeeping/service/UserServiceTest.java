@@ -20,6 +20,7 @@ public class UserServiceTest {
     private static final String FIRST_NAME = "Coos";
     private static final String LAST_NAME = "Wolff";
     private static final String NICKNAME = "AussieBuddy";
+    private static final String EMAIL = "test@email.com";
     private static final String USERNAME = "username";
     private static final String PASSWORD = "password";
     private static final LocalDate DATE_OF_BIRTH = LocalDate.of(1983, 2, 11);
@@ -39,6 +40,7 @@ public class UserServiceTest {
                 .lastName(LAST_NAME)
                 .dateOfBirth(DATE_OF_BIRTH)
                 .nickname(NICKNAME)
+                .email(EMAIL)
                 .username(USERNAME)
                 .password(PASSWORD)
                 .build();
