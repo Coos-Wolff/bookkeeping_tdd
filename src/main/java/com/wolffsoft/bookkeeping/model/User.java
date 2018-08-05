@@ -11,6 +11,7 @@ public abstract class User {
     public static User create(Integer id, String firstName, String lastName, LocalDate dateOfBirth, String nickname,
                               String username, String password) {
         Preconditions.checkArgument(id == null || (id >= 1), "Id cannot be smaller than 1 or be null");
+        Preconditions.checkArgument(!"".equals(email), "Email cannot be empty");
         Preconditions.checkArgument(!"".equals(username), "Username cannot be empty");
         Preconditions.checkArgument(!"".equals(password), "Password cannot be empty");
 
