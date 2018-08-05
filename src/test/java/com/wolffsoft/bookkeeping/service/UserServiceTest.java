@@ -54,4 +54,13 @@ public class UserServiceTest {
 
        assertThat(returnedUser).isEqualTo(user);
     }
+
+    @Test
+    public void testGetUserByEmail() {
+        when(userRepository.getByEmail(EMAIL)).thenReturn(Optional.of(user));
+
+        Optional<User> returnedUser = userService.getByEmail(EMAIL);
+
+        assertThat(returnedUser).isEqualTo(user);
+    }
 }
