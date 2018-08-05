@@ -72,6 +72,12 @@ public class UserTest {
     }
 
     @Test
+    public void testPreconditionEmailThrowsException() {
+        assertThatThrownBy(() -> User.create(1, FIRST_NAME, LAST_NAME, DATE_OF_BIRTH, NICKNAME, "", USERNAME,
+                PASSWORD)).hasMessage("Email cannot be empty").isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     public void testPreconditionIdWithNullValueThrowsException() {
         assertThatThrownBy(() -> User.create(null, FIRST_NAME, LAST_NAME, DATE_OF_BIRTH, NICKNAME, USERNAME, EMAIL,
                 PASSWORD)).isInstanceOf(NullPointerException.class);
