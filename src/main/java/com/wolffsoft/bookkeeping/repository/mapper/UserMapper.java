@@ -1,16 +1,16 @@
 package com.wolffsoft.bookkeeping.repository.mapper;
 
 import com.wolffsoft.bookkeeping.model.User;
-import org.skife.jdbi.v2.StatementContext;
-import org.skife.jdbi.v2.tweak.ResultSetMapper;
+import org.jdbi.v3.core.mapper.RowMapper;
+import org.jdbi.v3.core.statement.StatementContext;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserMapper implements ResultSetMapper<User> {
+public class UserMapper implements RowMapper<User> {
 
     @Override
-    public User map(int index, ResultSet resultSet, StatementContext context) throws SQLException {
+    public User map(ResultSet resultSet, StatementContext context) throws SQLException {
         return User.builder()
                 .id(resultSet.getInt("id"))
                 .firstName(resultSet.getString("first_name"))
