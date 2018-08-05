@@ -27,11 +27,11 @@
         <autovalue.version>1.6.1</autovalue.version>
         <guava.version>25.1-jre</guava.version>
         <sonar.qube.version>3.2</sonar.qube.version>
-        <jdbi.version>2.4.4</jdbi.version>
+        <jdbi.version>3.2.1</jdbi.version>
         <sonar.maven.plugin.version>3.4.1.1168</sonar.maven.plugin.version>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-        <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+        <sonar.jacoco.reportPaths>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPaths>
         <sonar.language>java</sonar.language>
         <jacoc.version>0.8.1</jacoc.version>
     </properties>
@@ -75,12 +75,20 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
+            <version>${mysql.version}</version>
         </dependency>
+
+        <!-- Flyway -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
+
 
         <!-- Database -->
         <dependency>
             <groupId>org.jdbi</groupId>
-            <artifactId>jdbi</artifactId>
+            <artifactId>jdbi3-core</artifactId>
             <version>${jdbi.version}</version>
         </dependency>
 
@@ -132,7 +140,7 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoc.version}</version>
                 <configuration>
-                    <destFile>${sonar.jacoco.reportPath}</destFile>
+                    <destFile>${sonar.jacoco.reportPaths}</destFile>
                     <append>true</append>
                 </configuration>
                 <executions>
