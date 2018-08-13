@@ -15,5 +15,11 @@ pipeline {
 				sh 'mvn verify'
 			}
 		}
+		
+		stage('SonarQube') {
+			steps {
+				sh 'mvn sonar:sonar'
+			}
+		}
 	}
 }
