@@ -8,12 +8,13 @@ import java.time.LocalDate;
 @AutoValue
 public abstract class User {
 
-    public static User create(Integer id, String firstName, String lastName, LocalDate dateOfBirth, String nickname,
+    // User only the create method. This has preconditions the builder has not.
+    public static User create(int id, String firstName, String lastName, LocalDate dateOfBirth, String nickname,
                               String email, String username, String password) {
-        Preconditions.checkArgument(id == null || (id >= 1), "Id cannot be smaller than 1 or be null");
-        Preconditions.checkArgument(!"".equals(email), "Email cannot be empty");
-        Preconditions.checkArgument(!"".equals(username), "Username cannot be empty");
-        Preconditions.checkArgument(!"".equals(password), "Password cannot be empty");
+        Preconditions.checkArgument(id >= 1, "Id cannot be smaller than 1");
+        Preconditions.checkArgument(!email.isEmpty(), "Email cannot be empty");
+        Preconditions.checkArgument(!username.isEmpty(), "Username cannot be empty");
+        Preconditions.checkArgument(!password.isEmpty(), "Password cannot be empty");
 
         return User.builder()
                 .id(id)

@@ -32,12 +32,13 @@ public class UserTest {
                 .password(PASSWORD)
                 .build();
 
-        assertThat(user.getFirstName()).isEqualToIgnoringCase(FIRST_NAME);
-        assertThat(user.getLastName()).isEqualToIgnoringCase(LAST_NAME);
+        assertThat(user.getFirstName()).isEqualTo(FIRST_NAME);
+        assertThat(user.getLastName()).isEqualTo(LAST_NAME);
         assertThat(user.getDateOfBirth()).isEqualTo(DATE_OF_BIRTH);
-        assertThat(user.getNickname()).isEqualToIgnoringCase(NICKNAME);
-        assertThat(user.getUsername()).isEqualToIgnoringCase(USERNAME);
-        assertThat(user.getPassword()).isEqualToIgnoringCase(PASSWORD);
+        assertThat(user.getNickname()).isEqualTo(NICKNAME);
+        assertThat(user.getEmail()).isEqualTo(EMAIL);
+        assertThat(user.getUsername()).isEqualTo(USERNAME);
+        assertThat(user.getPassword()).isEqualTo(PASSWORD);
     }
 
     @Test
@@ -49,6 +50,7 @@ public class UserTest {
         assertThat(user.getLastName()).isEqualTo(LAST_NAME);
         assertThat(user.getDateOfBirth()).isEqualTo(DATE_OF_BIRTH);
         assertThat(user.getNickname()).isEqualTo(NICKNAME);
+        assertThat(user.getEmail()).isEqualTo(EMAIL);
         assertThat(user.getUsername()).isEqualTo(USERNAME);
         assertThat(user.getPassword()).isEqualTo(PASSWORD);
     }
@@ -75,11 +77,5 @@ public class UserTest {
     public void testPreconditionEmailThrowsException() {
         assertThatThrownBy(() -> User.create(1, FIRST_NAME, LAST_NAME, DATE_OF_BIRTH, NICKNAME, "", USERNAME,
                 PASSWORD)).hasMessage("Email cannot be empty").isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
-    public void testPreconditionIdWithNullValueThrowsException() {
-        assertThatThrownBy(() -> User.create(null, FIRST_NAME, LAST_NAME, DATE_OF_BIRTH, NICKNAME, USERNAME, EMAIL,
-                PASSWORD)).isInstanceOf(NullPointerException.class);
     }
 }
