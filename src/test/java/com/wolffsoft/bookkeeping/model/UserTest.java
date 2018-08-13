@@ -70,7 +70,7 @@ public class UserTest {
     @Test
     public void testPreconditionIdThrowsException() {
         assertThatThrownBy(() -> User.create(0, FIRST_NAME, LAST_NAME, DATE_OF_BIRTH, NICKNAME, USERNAME, EMAIL,
-                PASSWORD)).hasMessage("Id cannot be smaller than 1 or be null").isInstanceOf(IllegalArgumentException.class);
+                PASSWORD)).hasMessage("Id cannot be smaller than 1").isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
