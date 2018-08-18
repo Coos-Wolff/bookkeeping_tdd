@@ -15,25 +15,31 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.0.4.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
 
     <properties>
+        <autovalue.version>1.6.2</autovalue.version>
+        <guava.version>26.0-jre</guava.version>
+        <jacoco.version>0.8.1</jacoco.version>
+        <java.version>1.8</java.version>
+        <jdbi.version>3.4.0</jdbi.version>
+        <maven.failsafe.plugin.version>2.22.0</maven.failsafe.plugin.version>
+        <maven.surefire.plugin.version>2.22.0</maven.surefire.plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
-        <source.version>1.8</source.version>
-        <target.version>1.8</target.version>
-        <autovalue.version>1.6.1</autovalue.version>
-        <guava.version>25.1-jre</guava.version>
+        <skip.integration.tests>false</skip.integration.tests>
+        <skip.unit.tests>false</skip.unit.tests>
+        <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
         <sonar.qube.version>3.2</sonar.qube.version>
-        <jdbi.version>3.2.1</jdbi.version>
         <sonar.maven.plugin.version>3.4.1.1168</sonar.maven.plugin.version>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
         <sonar.jacoco.reportPaths>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPaths>
         <sonar.language>java</sonar.language>
-        <jacoc.version>0.8.1</jacoc.version>
+        <source.version>1.8</source.version>
+        <target.version>1.8</target.version>
     </properties>
 
     <dependencies>
