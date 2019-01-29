@@ -11,3 +11,13 @@ CREATE TABLE user (
   password VARCHAR (255) NOT NULL ,
   PRIMARY KEY (id)
 );
+
+DROP TABLE account IF EXISTS;
+
+CREATE TABLE account (
+  id INT(11) NOT NULL ,
+  user_id INT(11) NOT NULL ,
+  account_number VARCHAR (60) NOT NULL ,
+  balance DECIMAL NOT NULL ,
+  PRIMARY KEY (id)
+);
