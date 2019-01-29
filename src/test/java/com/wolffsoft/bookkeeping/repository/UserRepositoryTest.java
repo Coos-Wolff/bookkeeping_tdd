@@ -20,7 +20,7 @@ public class UserRepositoryTest extends AbstractRepositoryTest<UserRepository> {
     private User user;
 
     @Before
-    public void setupUser() {
+    public void setup() {
         user = User.builder()
                 .id(1)
                 .firstName("Coos")
