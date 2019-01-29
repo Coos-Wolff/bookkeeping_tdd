@@ -33,6 +33,7 @@ public abstract class AbstractRepositoryTest<RepositoryType> {
 
         runDbScript("/init_test.sql");
         runDbScript("/user_data.sql");
+        runDbScript("/account_data.sql");
 
         repo = createRepository(jdbi);
     }
