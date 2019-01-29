@@ -17,7 +17,7 @@ public abstract class AbstractRepositoryTest<RepositoryType> {
     protected abstract RepositoryType createRepository(Jdbi jdbi);
 
     @Before
-    public void setup() throws Exception {
+    public void setupFlyway() throws Exception {
         JdbcDataSource dataSource = new JdbcDataSource();
         dataSource.setUser("SA");
         dataSource.setPassword("");
