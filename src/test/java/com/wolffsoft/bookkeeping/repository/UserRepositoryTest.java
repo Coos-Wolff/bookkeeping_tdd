@@ -4,7 +4,6 @@ import com.wolffsoft.bookkeeping.AbstractRepositoryTest;
 import com.wolffsoft.bookkeeping.model.User;
 import org.jdbi.v3.core.Jdbi;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
